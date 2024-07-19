@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
 

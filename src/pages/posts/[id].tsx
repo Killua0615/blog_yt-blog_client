@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { Post } from "../../types";
-import styles from "../styles/Post.module.css";
+import styles from "../../styles/Post.module.css";
 
 type Post = {
   post: Post;

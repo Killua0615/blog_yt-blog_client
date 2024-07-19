@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent } from 'react';
-import styles from './styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import { useRouter } from 'next/router';
 import axios from "axios";
 
