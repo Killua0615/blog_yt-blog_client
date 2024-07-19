@@ -1,5 +1,7 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { Post } from "../../types";
+import styles from "../styles/Post.module.css";
 
 type Post = {
   post: Post;
@@ -26,13 +28,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
   const res = await fetch(`http://localhost:3001/api/v1/posts/${params.id}`);
-  const posts = await res.json();
+  const post = await res.json();
 
-  console.log(Post); // Log the fetched data to check its value
+  console.log(post); // Log the fetched data to check its value
 
   return {
     props: {
-      posts,
+      post,
     },
     revalidate: 60,
   };
@@ -46,10 +48,10 @@ const Post = ( { post }: Props) => {
   }
 
   return (
-    <div>
-      <div className={styleText.container}></div>
-      <div></div>
-      <p></p>
+    <div className={styles.container}>
+      <div className={styles.title}>{post.title}</div>
+      <div className={styles.date}>{post.created_at}</div>
+      <p className={styles.content}>{post.content}</p>
     </div>
   )
 }
