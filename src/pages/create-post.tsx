@@ -1,10 +1,13 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import styles from './styles/Home.module.css';
+import { useRouter } from 'next/router';
 import axios from "axios";
+
 
 const CreatePost = () => {
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -15,6 +18,8 @@ const CreatePost = () => {
         title: title,
         content: content,
       });
+
+      router.push("/");
     } catch (err) {
       alert("投稿に失敗しました");
     }
