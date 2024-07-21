@@ -2,17 +2,22 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { Post } from "../types";
 import axios from "axios";
 import { useReducer } from "react";
 import { useRouter } from "next/router";
+
+interface Post {
+  id: string;
+  title: string;
+  content: string;
+}
 
 type Props = {
   posts: Post[];
 };
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3001/api/v1/posts");
+  const res = await fetch("http://127.0.0.1:3001/api/v1/posts");
   const posts = await res.json();
 
   console.log(posts); // Log the fetched data to check its value

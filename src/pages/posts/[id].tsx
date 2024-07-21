@@ -1,9 +1,15 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { Post } from "../../types";
 import styles from "../../styles/Post.module.css";
 
-type Post = {
+interface Post {
+  id: string;
+  title: string;
+  content: string;
+  created_at: string;
+}
+
+type Props = {
   post: Post;
 };
 
